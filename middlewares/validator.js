@@ -6,7 +6,7 @@ var httpStatus = require('http-status-codes');
 
 const loginValidation = () => {
     return [
-        check(constants.EMAIL, msg.REQUIRED_FIELD).exists().isEmail().withMessage(msg.INVALID_EMAIL),
+        check(constants.USERNAME, msg.REQUIRED_FIELD).exists().isEmail().withMessage(msg.INVALID_EMAIL),
         check(constants.PASSWORD, msg.REQUIRED_FIELD).exists().isLength({ min: 8 }).withMessage(msg.PASSWORD_MORE_CHAR)
     ]
 }

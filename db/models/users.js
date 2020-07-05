@@ -38,6 +38,11 @@ module.exports = (sequelize, DataTypes) => {
   });
   Users.associate = function (models) {
     // associations can be defined here
+    Users.hasMany(models.child_details, {
+      as: 'user',
+      foreignKey: 'user_id',
+      constraints: true
+    })
   };
   return Users;
 };

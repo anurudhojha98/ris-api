@@ -5,8 +5,8 @@ const msg = require('../common/messages');
 module.exports = {
     login(req, res) {
         try {
-            const { email, password } = req.body;
-            authService.userSignIn(email, password).then((user) => {
+            const { username, password } = req.body;
+            authService.userSignIn(username, password).then((user) => {
                 if (user) {
                     return res.status(httpStatus.OK).json(
                         {

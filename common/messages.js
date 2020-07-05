@@ -23,6 +23,14 @@ module.exports = {
     REQUIRED_FIELD: 'This field is required.',
     QUERY_PARAM_REQUIRED: 'This query param is required.',
     NO_RECORDS_FOUND: 'No records found.',
-    RECORDS_FOUND_SUCCESS:"Record found sucessfully"
+    RECORDS_FOUND_SUCCESS: "Record found sucessfully",
+    CHILD_DETAIL_SAVED_SUCCESS: 'Child details saved successfully.',
+    CHILD_DETAILS_FIND_SUCCSS: 'Child list found successfully.',
+    CHILD_DETAIL_FIND_SUCCSS: 'Child details found successfully.',
+    DISTRICT_SAVE_SUCCESS: 'District added successfully.',
+    DISTRICT_FOUND_SUCCESS: 'District found successfully.',
+    ERR_IN_SAVE_DETAILS: 'Error in save details.',
+    STATE_SAVED_SUCCESS: 'State saved successfully.',
+    STATE_FOUND_SUCCESS: 'State found successfully.'
 
 }

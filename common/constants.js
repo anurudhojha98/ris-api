@@ -5,5 +5,6 @@ module.exports = {
     UNDEFINED: 'undefined',
     SWAGGER_CSS: ".swagger-ui .topbar { display: none }",
     EMAIL: 'email',
+    USERNAME: 'username',
     PASSWORD: 'password'
 }

@@ -54,6 +54,14 @@ module.exports = {
     }
     logger.debug(`readXlsxFile() end : workSheetsFromFile : ${JSON.stringify(workSheetsFromFile)}`);
     return workSheetsFromFile;
-  }
+  },
+  getUserId(req) {
+    if (req.decoded) {
+      return req.decoded.id;
+    } else {
+      logger.error("Token not found.");
+      throw new Error("tokenNotFound");
+    }
+  },
 
 };

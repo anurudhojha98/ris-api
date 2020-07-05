@@ -38,6 +38,9 @@ models.sequelize
     });
 
 require("./routes/AuthRoutes")(app, router);
+require("./routes/ChildRoutes")(app, router);
+require("./routes/DistrictRoutes")(app, router);
+require("./routes/StateRoutes")(app, router);
 const options = { customCss: constant.SWAGGER_CSS };
 app.use(path.API_DOCS, swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
 app.listen(PORT, () => {
