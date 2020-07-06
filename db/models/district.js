@@ -24,6 +24,12 @@ module.exports = (sequelize, DataTypes) => {
             foreignKey: 'district_id',
             constraints: true
         })
+
+        District.belongsTo(models.states, {
+            as: 'state',
+            foreignKey: 'state_id',
+            constraints: true
+        })
     };
     return District;
 };

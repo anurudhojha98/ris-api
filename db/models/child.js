@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING
         },
         dob: {
-            type: DataTypes.DATE,
+            type: DataTypes.STRING,
             required: true,
         },
         fatherName: {
@@ -39,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
     });
     Child.associate = function (models) {
         // associations can be defined here
-        Child.belongsTo(models.states, {
+        Child.belongsTo(models.districts, {
             as: 'district',
             foreignKey: 'district_id',
             constraints: true

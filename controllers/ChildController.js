@@ -36,8 +36,9 @@ module.exports = {
     },
     getChildList(req, res) {
         try {
-            const userId = commonFunction.getUserId(req)
-            childService.getChildList(userId).then((childDetails) => {
+            const userId = commonFunction.getUserId(req);
+            const query = req.query;
+            childService.getChildList(userId, query).then((childDetails) => {
                 if (childDetails.length > 0) {
                     return res.status(httpStatus.OK).json(
                         {

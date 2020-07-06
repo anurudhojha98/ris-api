@@ -65,5 +65,39 @@ module.exports = {
                 message: msg.INTERNAL_SERVER_ERR
             })
         }
+    },
+    getDistrictWithState(req, res) {
+        try {
+            districtService.getDistrictWithState().then((districtDetails) => {
+                if (districtDetails.length > 0) {
+                    return res.status(httpStatus.OK).json(
+                        {
+                            success: true,
+                            message: msg.DISTRICT_FOUND_SUCCESS,
+                            data: districtDetails
+                        }
+                    )
+                } else {
+                    return res.status(httpStatus.OK).json(
+                        {
+                            success: true,
+                            message: msg.NO_RECORDS_FOUND
+                        }
+                    )
+                }
+            }).catch((err) => {
+                logger.error(err.message);
+                return res.status(httpStatus.OK).json({
+                    success: false,
+                    message: msg.ERR_IN_FETCH_DETAILS
+                })
+            });
+        } catch (err) {
+            logger.error(err.message);
+            return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
+                success: false,
+                message: msg.INTERNAL_SERVER_ERR
+            })
+        }
     }
 }

@@ -8,6 +8,7 @@ module.exports = {
     GET_CHILD_BY_ID: '/child/:childid',
     GET_DISTRICT_BY_STATE_ID: '/district',
     POST_DISTRICT: '/district',
+    GET_DISTRICT: '/district-list',
     GET_STATE_LIST: '/state-list',
     POST_STATE: '/state'
 }

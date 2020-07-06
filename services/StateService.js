@@ -7,5 +7,8 @@ module.exports = {
     },
     async getStateList() {
         return await models.states.findAll({});
+    },
+    async getStateByStateId(stateId) {
+        return await models.states.findOne({ where: { id: stateId } });
     }
 }

@@ -63,5 +63,36 @@ module.exports = {
       throw new Error("tokenNotFound");
     }
   },
+  prepareDateFormat(date) {
+    const strDate = new Date(date);
+    const year = strDate.getFullYear();
+    const newdate = strDate.getDate();
+    const month = strDate.getMonth();
+    let formattedDate = newdate + '/' + month + '/' + year;
+    return formattedDate;
+  },
+  getSexDetail(sex) {
+    let id = parseInt(sex);
+    let sexName = 'Male';
+    if (id === 2) {
+      sexName = 'Female';
+    } else if (id === 3) {
+      sexName = 'Transegender'
+    }
+    return sexName;
+  },
+  pagination(searchQuery) {
+    let page = 0;
+    let pageSize = 5;
+    if (searchQuery.page && searchQuery.pageSize) {
+      if (searchQuery.page !== '' && searchQuery.pageSize !== '') {
+        page = searchQuery.page;
+        pageSize = searchQuery.pageSize
+      }
+    }
+    let offset = parseInt(page) * parseInt(pageSize);
+    let limit = parseInt(pageSize);
+    return { offset, limit }
+  }
 
 };
