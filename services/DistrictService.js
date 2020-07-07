@@ -7,11 +7,13 @@ module.exports = {
             districtName: districtObj.district,
             state_id: districtObj.state
         });
-        let stateDetail = await stateService.getStateByStateId(savedDistrict.state_id);
-        obj.id = savedDistrict.id;
-        obj.districtName = savedDistrict.districtName;
-        obj.stateId = savedDistrict.state_id;
-        obj.stateName = stateDetail?.stateName;
+        if (savedDistrict) {
+            let stateDetail = await stateService.getStateByStateId(savedDistrict.state_id);
+            obj.id = savedDistrict.id;
+            obj.districtName = savedDistrict.districtName;
+            obj.stateId = savedDistrict.state_id;
+            obj.stateName = stateDetail?.stateName;
+        }
         return obj;
     },
     async getDistrictList(stateId) {
@@ -20,14 +22,16 @@ module.exports = {
     async getDistrictWithState() {
         let districtDetail = await models.districts.findAll({ include: [{ model: models.states, as: 'state' }] });
         let returnedArr = [];
-        for (let districtData of districtDetail) {
-            let district = districtData.dataValues;
-            let obj = {};
-            obj.id = district.id;
-            obj.districtName = district.districtName;
-            obj.stateName = district.state?.stateName;
-            obj.stateId = district.state?.id;
-            returnedArr.push(obj);
+        if (districtDetail.length > 0) {
+            for (let districtData of districtDetail) {
+                let district = districtData.dataValues;
+                let obj = {};
+                obj.id = district.id;
+                obj.districtName = district.districtName;
+                obj.stateName = district.state?.stateName;
+                obj.stateId = district.state?.id;
+                returnedArr.push(obj);
+            }
         }
         return returnedArr;
     }

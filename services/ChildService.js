@@ -17,9 +17,11 @@ module.exports = {
             include: [{ model: models.districts, as: 'district', include: [{ model: models.states, as: 'state' }] }]
         });
         let returnedArr = [];
-        for (let child of childList) {
-            let childDetail = child.dataValues;
-            returnedArr.push(this.prepareChildData(childDetail));
+        if (childList.length > 0) {
+            for (let child of childList) {
+                let childDetail = child.dataValues;
+                returnedArr.push(this.prepareChildData(childDetail));
+            }
         }
         return returnedArr;
     },
@@ -29,7 +31,10 @@ module.exports = {
             where: { id: childId, user_id: userId },
             include: [{ model: models.districts, as: 'district', include: [{ model: models.states, as: 'state' }] }]
         });
-        return this.prepareChildData(childDetail);
+        if (childDetail) {
+            childDetail = this.prepareChildData(childDetail);
+        }
+        return childDetail;
     },
     prepareChildData(childDetail) {
         let newObj = {};
