@@ -23,7 +23,7 @@
     "express-validator": "^6.5.0",
     "http-status-codes": "^1.4.0",
     "jsonwebtoken": "^8.5.1",
-    "mocha": "^7.2.0",
+    "mocha": "^10.2.0",
     "morgan": "^1.10.0",
     "mysql2": "^2.1.0",
     "node-xlsx": "^0.15.0",
